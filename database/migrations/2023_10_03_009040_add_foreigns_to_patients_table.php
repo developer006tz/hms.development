@@ -11,12 +11,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('patients', function (Blueprint $table) {
-            // $table
-            //     ->foreign('blood_group_id')
-            //     ->references('id')
-            //     ->on('blood_groups')
-            //     ->onUpdate('CASCADE')
-            //     ->onDelete('CASCADE');
+            $table
+                ->foreign('blood_group_id')
+                ->references('id')
+                ->on('blood_groups')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
 
             $table
                 ->foreign('hospital_id')

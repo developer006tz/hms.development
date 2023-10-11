@@ -13,23 +13,24 @@ return new class extends Migration {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('patient_no');
-            $table->string('patient_middlename');
+            $table->string('patient_middlename')->nullable();
             $table->string('patient_firstname');
             $table->string('patient_lastname');
-            $table->string('patient_email')->nullable();
-            $table->string('patient_address');
-            $table->string('patient_phonenumber');
+            $table->string('patient_email')->unique('patient_email');
+            $table->string('patient_address')->nullable();
+            $table->string('patient_phonenumber')->nullable();
             $table->enum('patient_gender', ['male', 'female', 'others']);
             $table->date('patient_dob')->nullable();
-            $table->string('patient_city');
+            $table->enum('has_insurance', ['yes', 'no'])->default('no');
+            $table->string('patient_city')->nullable();
             $table->string('patient_zipcode')->nullable();
-            $table->string('patient_country');
-            $table->string('patient_nationality');
+            $table->string('patient_nationality')->nullable();
             $table->string('patient_password');
             $table->string('patient_default_password');
             $table->string('patient_photo')->nullable();
             $table->foreignId('hospital_id');
             $table->unsignedBigInteger('user_id');
+            $table->foreignId('blood_group_id');
 
             $table->timestamps();
             $table->softDeletes();

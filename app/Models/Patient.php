@@ -25,7 +25,7 @@ class Patient extends Model
         'patient_dob',
         'patient_city',
         'patient_zipcode',
-        'patient_country',
+        'has_insurance',
         'patient_nationality',
         'patient_password',
         'patient_default_password',
