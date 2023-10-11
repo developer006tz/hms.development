@@ -31,6 +31,7 @@ use App\Http\Controllers\PatientAppointmentDiagnosisController;
 use App\Http\Controllers\HospitalIdentificationNumbersController;
 use App\Http\Controllers\AppointmentDiagnosisTestResultController;
 use App\Http\Controllers\Receptionist\DashboardController as ReceptionistController;
+use App\Http\Controllers\doctor\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +71,9 @@ Route::prefix('/')
         Route::get('/list-doctors-by-schedule',[ReceptionistController::class,'list_doctors_by_schedule'])->name('doctor.ondute');
         Route::get('/list-doctors',[ReceptionistController::class,'list_doctors'])->name('doctor.list');
         Route::get('/list-departments',[ReceptionistController::class,'department_list'])->name('department.list');
+
+        //doctor route
+        Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('doctor.dashboard');
+        Route::get('/profile', [DashboardController::class, 'showDoctorProfile'])->name('doctor.profile');
+
     });
