@@ -16,7 +16,8 @@
             <div class="card">
               <div class="card-body">
                 <div class="basic-form">
-                  <form>
+                  <form action={{route('patients.store')}} method="POST">
+                    @csrf
                     <div class="row">
                       <div class="form-group col-sm-4">
                         <label for="patient">First Name</label>
@@ -40,7 +41,7 @@
                         <input type="tel" class="form-control input-default custom-jason-input border-grey" name="patient_phonenumber" placeholder="Phone" />
                       </div>
                       <div class="form-group col-sm-4">
-                        <label for="patient">Adress</label>
+                        <label for="patient">Address</label>
                         <input type="text" class="form-control input-default custom-jason-input border-grey" name="patient_address" placeholder="Address" />
                       </div>
 
@@ -75,25 +76,26 @@
 
                       <div class="form-group col-sm-4">
                         <label for="insurance">Nationality *</label>
-                        <select class="form-control default-select custom-jason-input" id="sel1">
-                          <option>Eyes Department</option>
-                          <option>No</option>
+                        <select class="form-control default-select custom-jason-input" id="sel43" name="patient_nationality">
+                          @foreach ($countries as $country)
+                          <option value="{{$country->id}}">{{$country->name}}</option>
+                          @endforeach
                         </select>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="insurance">City *</label>
-                      <select class="form-control default-select custom-jason-input" id="sel1">
-                        <option>Judith Makunganya</option>
-                        <option>No</option>
+                      <select class="form-control default-select custom-jason-input" id="sel1" name="patient_city">
+                        <option value="1">Dar Es salaam</option>
+                        <option value="2">Arusha</option>
                       </select>
                     </div>
                     <div class="form-group col-sm-4">
                       <label for="patient">Zip code</label>
-                      <input type="text" class="form-control input-default custom-jason-input border-grey" name="patient_firstname" placeholder="Zip code" />
+                      <input type="text" class="form-control input-default custom-jason-input border-grey" name="patient_zipcode" placeholder="Zip code" />
                     </div>
                     <div class="form-group col-sm-4">
                       <label for="patient">Patient Photo</label>
-                      <input type="file" class="form-control input-default custom-jason-input border-grey" name="patient_firstname" placeholder="Zip code" />
+                      <input type="file" class="form-control input-default custom-jason-input border-grey" name="patient_photo" placeholder="Zip code" />
                     </div>
                     <div class="form-group col-sm-12 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">

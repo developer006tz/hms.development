@@ -56,6 +56,8 @@ class BloodGroupSeeder extends Seeder
             ],
         ];
 
-        DB::table('blood_groups')->insert($blood_group_data);
+        foreach ($blood_group_data as $blood_group) {
+            BloodGroup::create($blood_group);
+        }
     }
 }

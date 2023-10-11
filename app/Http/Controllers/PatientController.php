@@ -51,10 +51,10 @@ class PatientController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        dd($request->all());
         $this->authorize('create', Patient::class);
 
         $validated = $request->validate([
-            'patient_no' => ['required', 'max:255', 'string'],
             'patient_firstname' => ['required', 'max:255', 'string'],
             'patient_email' => ['nullable', 'max:255', 'string'],
             'patient_address' => ['required', 'max:255', 'string'],

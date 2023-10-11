@@ -20,8 +20,9 @@ class DashboardController extends Controller
     public function add_patient()
     {
         $this->data['blood_groups'] = \App\Models\BloodGroup::all();
-
-        return view('dashboards.receptionist.patient_add');
+        $this->data['departments'] = \App\Models\Department::all();
+        $this->data['countries'] = \App\Models\Countries::all();
+        return view('dashboards.receptionist.patient_add', $this->data);
     }
 
     public function list_patient()
