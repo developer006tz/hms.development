@@ -69,15 +69,15 @@
                   </div>
                       <div class="form-group col-sm-4">
                         <label for="patient">Date of Birth</label>
-                        <input type="date" class="form-control input-default custom-jason-input border-grey" name="patient_firstname" placeholder="name" />
+                        <input type="date" class="form-control input-default custom-jason-input border-grey" name="patient_dob" placeholder="Date of bith" />
                       </div>
 
                       <div class="form-group col-sm-4">
                         <label for="insurance">Nationality *</label>
-                      <select class="form-control default-select custom-jason-input" id="sel1">
-                        <option>Eyes Department</option>
-                        <option>No</option>
-                      </select>
+                        <select class="form-control default-select custom-jason-input" id="sel1">
+                          <option>Eyes Department</option>
+                          <option>No</option>
+                        </select>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="insurance">City *</label>

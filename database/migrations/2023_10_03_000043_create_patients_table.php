@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->enum('has_insurance', ['yes', 'no'])->default('no');
             $table->string('patient_city')->nullable();
             $table->string('patient_zipcode')->nullable();
-            $table->string('patient_nationality')->nullable();
+            $table->foreignId('patient_nationality');
             $table->string('patient_password');
             $table->string('patient_default_password');
             $table->string('patient_photo')->nullable();
