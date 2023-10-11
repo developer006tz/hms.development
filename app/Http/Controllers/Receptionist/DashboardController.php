@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    private $data = [];
+    public function __construct()
+    {
+        // $this->middleware(['auth', 'receptionist']);
+    }
     public function index()
     {
         return view('dashboards.receptionist.dashboard');
@@ -14,7 +19,10 @@ class DashboardController extends Controller
 
     public function add_patient()
     {
-        return view('dashboards.receptionist.patient_add');
+        $this->data['blood_groups'] = \App\Models\BloodGroup::all();
+        $this->data['departments'] = \App\Models\Department::all();
+        $this->data['countries'] = \App\Models\Countries::all();
+        return view('dashboards.receptionist.patient_add', $this->data);
     }
 
     public function list_patient()

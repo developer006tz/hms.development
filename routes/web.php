@@ -60,6 +60,8 @@ Route::prefix('/')
         Route::resource('appointments', AppointmentController::class);
         Route::resource('staff-types', StaffTypeController::class);
         Route::resource('super-admins', SuperAdminController::class);
+        Route::resource('hospitals', HospitalController::class);
+        Route::resource('patients', PatientController::class);
         Route::resource('users', UserController::class);
 
 

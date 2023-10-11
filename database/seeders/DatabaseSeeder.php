@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Adding an admin user
-        $user = \App\Models\User::factory()
+        \App\Models\User::factory()
             ->count(1)
             ->create([
                 'name' => 'Admin',
@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CountrySeeder::class);
         $this->call(HospitalSeeder::class);
+        $this->call(BloodGroupSeeder::class);
         // $this->call(AppointmentDiagnosisTestResultSeeder::class);
         // $this->call(AppointmentDoctorInvoiceSeeder::class);
         // $this->call(AppointmentFeedbackSeeder::class);

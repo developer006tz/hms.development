@@ -14,7 +14,7 @@ class HospitalSeeder extends Seeder
     public function run(): void
     {
         $hospital = [
-            [
+            
                 'hospital_name' => 'Hospital 1',
                 'hospital_location' => 'Hospital 1 Location',
                 'hospital_address_one' => 'Hospital 1 Address One',
@@ -29,9 +29,11 @@ class HospitalSeeder extends Seeder
                 'hospital_website_link' => 'Hospital 1 Website Link',
                 'hospital_type_id' => null,
                 'package_id' => null,
-            ],
+            
         ];
 
-        DB::table('hospitals')->insert($hospital);
+        
+        Hospital::create($hospital);
+        
     }
 }
