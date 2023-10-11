@@ -63,8 +63,9 @@
                     <div class="form-group col-sm-4 mb-3">
                       <label for="insurance">Blood Group</label>
                     <select class="form-control default-select custom-jason-input" id="sel9" name="blood_group_id">
-                      <option value="A">A</option>
-                      <option value="B">A-</option>
+                      @foreach ($blood_groups as $blood_group)
+                      <option value="{{$blood_group->id}}">{{$blood_group->blood_group_name}}</option>
+                      @endforeach
                     </select>
                   </div>
                       <div class="form-group col-sm-4">

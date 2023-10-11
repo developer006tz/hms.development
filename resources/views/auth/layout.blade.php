@@ -8,6 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
       rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 </head>
 
 <body class="h-100">
@@ -35,5 +36,34 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    @php
+    $notyfOptions = [
+        'dismissible' => true,
+        'duration' => 5000,
+        'position' => [
+            'x' => 'right',
+            'y' => 'top'
+        ]
+    ];
+@endphp
+
+@foreach (['success', 'error'] as $type)
+    @if (session()->has($type))
+        <script>
+            var notyf = new Notyf(@json($notyfOptions));
+            notyf.{{ $type }}('{{ session($type) }}');
+        </script>
+    @endif
+@endforeach
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.alert').alert()
+    })
+</script>
+
 </body>
 </html>
