@@ -1,0 +1,1 @@
+@include('dashboards.receptionist.sidebar')
